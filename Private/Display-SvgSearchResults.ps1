@@ -47,7 +47,7 @@ Function Display-SvgSearchResults {
                         Type = "URL"
                         Source = "Light"
                         Action = "URL"
-                        Value = $item.url
+                        Value = $item.route.light
                         Title = $item.title
                         SvgUrl = $item.route.light
                     })
@@ -99,7 +99,7 @@ Function Display-SvgSearchResults {
                         Type = "URL"
                         Source = "Dark"
                         Action = "URL"
-                        Value = $item.url
+                        Value = $item.route.dark
                         Title = $item.title
                         SvgUrl = $item.route.dark
                     })
@@ -150,7 +150,7 @@ Function Display-SvgSearchResults {
                     Type = "URL"
                     Source = "Default"
                     Action = "URL"
-                    Value = $item.url
+                    Value = $item.route
                     Title = $item.title
                     SvgUrl = $item.route
                 })
@@ -206,7 +206,7 @@ Function Display-SvgSearchResults {
                         Type = "URL"
                         Source = "Wordmark Light"
                         Action = "URL"
-                        Value = $item.url
+                        Value = $item.wordmark.light
                         Title = $item.title
                         SvgUrl = $item.wordmark.light
                     })
@@ -258,7 +258,7 @@ Function Display-SvgSearchResults {
                         Type = "URL"
                         Source = "Wordmark Dark"
                         Action = "URL"
-                        Value = $item.url
+                        Value = $item.wordmark.dark
                         Title = $item.title
                         SvgUrl = $item.wordmark.dark
                     })
@@ -309,7 +309,7 @@ Function Display-SvgSearchResults {
                     Type = "URL"
                     Source = "Wordmark"
                     Action = "URL"
-                    Value = $item.url
+                    Value = $item.wordmark
                     Title = $item.title
                     SvgUrl = $item.wordmark
                 })
@@ -419,9 +419,9 @@ Function Display-SvgSearchResults {
     if ($selectedOption) {
         switch ($selectedOption.Action) {
             "URL" {
-                # Copy URL to clipboard
+                # Copy SVG URL to clipboard
                 $selectedOption.Value | Set-Clipboard
-                Write-Host "Copied URL to clipboard: $($selectedOption.Value)" -ForegroundColor Green
+                Write-Host "Copied SVG URL to clipboard: $($selectedOption.Value)" -ForegroundColor Green
             }
             "RawSVG" {
                 # Request SVG content and copy to clipboard
