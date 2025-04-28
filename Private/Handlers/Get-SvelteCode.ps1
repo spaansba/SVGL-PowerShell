@@ -4,7 +4,8 @@ function Get-SvelteCode {
         [string]$Content,
         
         [Parameter()]
-        [string]$Lang = ""
+        [ValidateSet('ts', 'js')]
+        [string]$Lang = 'ts'
     )
     
     # Create Svelte component code

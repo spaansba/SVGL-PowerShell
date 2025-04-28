@@ -11,6 +11,7 @@ Function Display-SvgSearchResults {
     . "$PSScriptRoot\Handlers\Get-AstroCode.ps1"
     . "$PSScriptRoot\Options\Add-Options.ps1"
     . "$PSScriptRoot\Api\Invoke-ApiRequest.ps1"
+    . "$PSScriptRoot\Options\Get-TypeScriptPreference.ps1"
 
     $count = $Results.Count
     Write-Host "Found $count results for '$SearchTerm'" -ForegroundColor Green
@@ -101,9 +102,7 @@ Function Display-SvgSearchResults {
                 }
             }
             "React" {
-                # Ask if TypeScript is needed
-                $useTypeScript = Read-Host "Do you want TypeScript support? (y/n)"
-                $isTypeScript = $useTypeScript.ToLower() -eq 'y'
+                $isTypeScript = Get-TypeScriptPreference
                 
                 # First get the SVG content
                 $svgContent = Invoke-ApiRequest -Uri $selectedOption.SvgUrl
@@ -133,10 +132,9 @@ Function Display-SvgSearchResults {
                 }
             }
             "Vue" {
-                # Ask if TypeScript is needed
-                $useTypeScript = Read-Host "Do you want TypeScript support? (y/n)"
-                $lang = if ($useTypeScript.ToLower() -eq 'y') { "ts" } else { "" }
-                
+                $isTypeScript = Get-TypeScriptPreference
+                $lang = if ($isTypeScript) { 'ts' } else { 'js' }
+
                 # First get the SVG content
                 $svgContent = Invoke-ApiRequest -Uri $selectedOption.SvgUrl
                 
@@ -147,14 +145,13 @@ Function Display-SvgSearchResults {
                     # Copy Vue component to clipboard
                     $vueComponent | Set-Clipboard
                     
-                    $tsMessage = if ($lang) { " with TypeScript" } else { "" }
+                    $tsMessage = if ($isTypeScript) { " with TypeScript" } else { "" }
                     Write-Host "Copied Vue component$tsMessage to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
                 }
             }
             "Svelte" {
-                # Ask if TypeScript is needed
-                $useTypeScript = Read-Host "Do you want TypeScript support? (y/n)"
-                $lang = if ($useTypeScript.ToLower() -eq 'y') { "ts" } else { "" }
+                $isTypeScript = Get-TypeScriptPreference
+                $lang = if ($isTypeScript) { 'ts' } else { 'js' }
                 
                 # First get the SVG content
                 $svgContent = Invoke-ApiRequest -Uri $selectedOption.SvgUrl

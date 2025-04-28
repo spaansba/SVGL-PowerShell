@@ -4,7 +4,8 @@ function Get-VueCode {
         [string]$Content,
         
         [Parameter()]
-        [string]$Lang = ""
+        [ValidateSet('ts', 'js')]
+        [string]$Lang = 'ts'
     )
     
     # Create Vue component code
