@@ -38,7 +38,6 @@
                 if ($item.route.PSObject.Properties.Name -contains "light") {
                     Write-Host ($tableFormat -f "Light", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
                     
-                    # Add URL option
                     [void]$svgOptions.Add(@{
                         Number = $counter
                         Type = "URL"
@@ -46,10 +45,8 @@
                         Action = "URL"
                         Value = $item.route.light
                         Title = $item.title
-                        SvgUrl = $item.route.light
                     })
                     
-                    # Add Raw SVG option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+1)
                         Type = "Raw SVG"
@@ -57,10 +54,8 @@
                         Action = "RawSVG"
                         Value = $item.route.light
                         Title = $item.title
-                        SvgUrl = $item.route.light
                     })
                     
-                    # Add React option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+2)
                         Type = "React"
@@ -68,10 +63,8 @@
                         Action = "React"
                         Value = $item.route.light
                         Title = $item.title
-                        SvgUrl = $item.route.light
                     })
                     
-                    # Add Vue option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+3)
                         Type = "Vue"
@@ -79,10 +72,9 @@
                         Action = "Vue"
                         Value = $item.route.light
                         Title = $item.title
-                        SvgUrl = $item.route.light
                     })
                     
-                    # Add Svelte option
+
                     [void]$svgOptions.Add(@{
                         Number = ($counter+4)
                         Type = "Svelte"
@@ -90,10 +82,8 @@
                         Action = "Svelte"
                         Value = $item.route.light
                         Title = $item.title
-                        SvgUrl = $item.route.light
                     })
                     
-                    # Add Astro option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+5)
                         Type = "Astro"
@@ -101,10 +91,8 @@
                         Action = "Astro"
                         Value = $item.route.light
                         Title = $item.title
-                        SvgUrl = $item.route.light
                     })
                     
-                    # Add Angular option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+6)
                         Type = "Angular"
@@ -112,7 +100,6 @@
                         Action = "Angular"
                         Value = $item.route.light
                         Title = $item.title
-                        SvgUrl = $item.route.light
                     })
                     
                     $counter += 7
@@ -122,7 +109,6 @@
                 if ($item.route.PSObject.Properties.Name -contains "dark") {
                     Write-Host ($tableFormat -f "Dark", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
                     
-                    # Add URL option
                     [void]$svgOptions.Add(@{
                         Number = $counter
                         Type = "URL"
@@ -130,10 +116,8 @@
                         Action = "URL"
                         Value = $item.route.dark
                         Title = $item.title
-                        SvgUrl = $item.route.dark
                     })
                     
-                    # Add Raw SVG option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+1)
                         Type = "Raw SVG"
@@ -141,10 +125,8 @@
                         Action = "RawSVG"
                         Value = $item.route.dark
                         Title = $item.title
-                        SvgUrl = $item.route.dark
                     })
                     
-                    # Add React option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+2)
                         Type = "React"
@@ -152,10 +134,8 @@
                         Action = "React"
                         Value = $item.route.dark
                         Title = $item.title
-                        SvgUrl = $item.route.dark
                     })
                     
-                    # Add Vue option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+3)
                         Type = "Vue"
@@ -163,10 +143,8 @@
                         Action = "Vue"
                         Value = $item.route.dark
                         Title = $item.title
-                        SvgUrl = $item.route.dark
                     })
                     
-                    # Add Svelte option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+4)
                         Type = "Svelte"
@@ -174,10 +152,8 @@
                         Action = "Svelte"
                         Value = $item.route.dark
                         Title = $item.title
-                        SvgUrl = $item.route.dark
                     })
                     
-                    # Add Astro option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+5)
                         Type = "Astro"
@@ -185,10 +161,8 @@
                         Action = "Astro"
                         Value = $item.route.dark
                         Title = $item.title
-                        SvgUrl = $item.route.dark
                     })
                     
-                    # Add Angular option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+6)
                         Type = "Angular"
@@ -196,7 +170,6 @@
                         Action = "Angular"
                         Value = $item.route.dark
                         Title = $item.title
-                        SvgUrl = $item.route.dark
                     })
                     
                     $counter += 7
@@ -206,7 +179,6 @@
                 Write-Host "here"
                 Write-Host ($tableFormat -f "Default", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
                 
-                # Add URL option
                 [void]$svgOptions.Add(@{
                     Number = $counter
                     Type = "URL"
@@ -214,21 +186,16 @@
                     Action = "URL"
                     Value = $item.route
                     Title = $item.title
-                    SvgUrl = $item.route
                 })
                 
-                # Add Raw SVG option
                 [void]$svgOptions.Add(@{
                     Number = ($counter+1)
                     Type = "Raw SVG"
                     Source = "Default"
                     Action = "RawSVG"
                     Value = $item.route
-                    Title = $item.title
-                    SvgUrl = $item.route
                 })
                 
-                # Add React option
                 [void]$svgOptions.Add(@{
                     Number = ($counter+2)
                     Type = "React"
@@ -236,10 +203,8 @@
                     Action = "React"
                     Value = $item.route
                     Title = $item.title
-                    SvgUrl = $item.route
                 })
                 
-                # Add Vue option
                 [void]$svgOptions.Add(@{
                     Number = ($counter+3)
                     Type = "Vue"
@@ -247,10 +212,8 @@
                     Action = "Vue"
                     Value = $item.route
                     Title = $item.title
-                    SvgUrl = $item.route
                 })
                 
-                # Add Svelte option
                 [void]$svgOptions.Add(@{
                     Number = ($counter+4)
                     Type = "Svelte"
@@ -258,10 +221,8 @@
                     Action = "Svelte"
                     Value = $item.route
                     Title = $item.title
-                    SvgUrl = $item.route
                 })
                 
-                # Add Astro option
                 [void]$svgOptions.Add(@{
                     Number = ($counter+5)
                     Type = "Astro"
@@ -269,10 +230,8 @@
                     Action = "Astro"
                     Value = $item.route
                     Title = $item.title
-                    SvgUrl = $item.route
                 })
                 
-                # Add Angular option
                 [void]$svgOptions.Add(@{
                     Number = ($counter+6)
                     Type = "Angular"
@@ -280,7 +239,6 @@
                     Action = "Angular"
                     Value = $item.route
                     Title = $item.title
-                    SvgUrl = $item.route
                 })
                 
                 $counter += 7
@@ -294,7 +252,6 @@
                 if ($item.wordmark.PSObject.Properties.Name -contains "light") {
                     Write-Host ($tableFormat -f "Wordmark Light", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
                     
-                    # Add URL option
                     [void]$svgOptions.Add(@{
                         Number = $counter
                         Type = "URL"
@@ -302,10 +259,8 @@
                         Action = "URL"
                         Value = $item.wordmark.light
                         Title = $item.title
-                        SvgUrl = $item.wordmark.light
                     })
                     
-                    # Add Raw SVG option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+1)
                         Type = "Raw SVG"
@@ -313,10 +268,8 @@
                         Action = "RawSVG"
                         Value = $item.wordmark.light
                         Title = $item.title
-                        SvgUrl = $item.wordmark.light
                     })
                     
-                    # Add React option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+2)
                         Type = "React"
@@ -324,10 +277,8 @@
                         Action = "React"
                         Value = $item.wordmark.light
                         Title = $item.title
-                        SvgUrl = $item.wordmark.light
                     })
                     
-                    # Add Vue option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+3)
                         Type = "Vue"
@@ -335,10 +286,8 @@
                         Action = "Vue"
                         Value = $item.wordmark.light
                         Title = $item.title
-                        SvgUrl = $item.wordmark.light
                     })
                     
-                    # Add Svelte option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+4)
                         Type = "Svelte"
@@ -346,10 +295,8 @@
                         Action = "Svelte"
                         Value = $item.wordmark.light
                         Title = $item.title
-                        SvgUrl = $item.wordmark.light
                     })
                     
-                    # Add Astro option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+5)
                         Type = "Astro"
@@ -357,10 +304,8 @@
                         Action = "Astro"
                         Value = $item.wordmark.light
                         Title = $item.title
-                        SvgUrl = $item.wordmark.light
                     })
                     
-                    # Add Angular option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+6)
                         Type = "Angular"
@@ -368,7 +313,6 @@
                         Action = "Angular"
                         Value = $item.wordmark.light
                         Title = $item.title
-                        SvgUrl = $item.wordmark.light
                     })
                     
                     $counter += 7
@@ -385,7 +329,6 @@
                         Action = "URL"
                         Value = $item.wordmark.dark
                         Title = $item.title
-                        SvgUrl = $item.wordmark.dark
                     })
                     
                     [void]$svgOptions.Add(@{
@@ -395,7 +338,6 @@
                         Action = "RawSVG"
                         Value = $item.wordmark.dark
                         Title = $item.title
-                        SvgUrl = $item.wordmark.dark
                     })
                     
                     [void]$svgOptions.Add(@{
@@ -405,7 +347,6 @@
                         Action = "React"
                         Value = $item.wordmark.dark
                         Title = $item.title
-                        SvgUrl = $item.wordmark.dark
                     })
                     
                     [void]$svgOptions.Add(@{
@@ -415,7 +356,6 @@
                         Action = "Vue"
                         Value = $item.wordmark.dark
                         Title = $item.title
-                        SvgUrl = $item.wordmark.dark
                     })
                     
 
@@ -426,7 +366,6 @@
                         Action = "Svelte"
                         Value = $item.wordmark.dark
                         Title = $item.title
-                        SvgUrl = $item.wordmark.dark
                     })
                     
                     [void]$svgOptions.Add(@{
@@ -436,7 +375,6 @@
                         Action = "Astro"
                         Value = $item.wordmark.dark
                         Title = $item.title
-                        SvgUrl = $item.wordmark.dark
                     })
                     
                     [void]$svgOptions.Add(@{
@@ -446,7 +384,6 @@
                         Action = "Angular"
                         Value = $item.wordmark.dark
                         Title = $item.title
-                        SvgUrl = $item.wordmark.dark
                     })
                     
                     $counter += 7
@@ -462,7 +399,6 @@
                     Action = "URL"
                     Value = $item.wordmark
                     Title = $item.title
-                    SvgUrl = $item.wordmark
                 })
                 
                 [void]$svgOptions.Add(@{
@@ -472,7 +408,6 @@
                     Action = "RawSVG"
                     Value = $item.wordmark
                     Title = $item.title
-                    SvgUrl = $item.wordmark
                 })
                 
                 [void]$svgOptions.Add(@{
@@ -482,7 +417,6 @@
                     Action = "React"
                     Value = $item.wordmark
                     Title = $item.title
-                    SvgUrl = $item.wordmark
                 })
 
                 [void]$svgOptions.Add(@{
@@ -492,7 +426,6 @@
                     Action = "Vue"
                     Value = $item.wordmark
                     Title = $item.title
-                    SvgUrl = $item.wordmark
                 })
                 
                 [void]$svgOptions.Add(@{
@@ -502,7 +435,6 @@
                     Action = "Svelte"
                     Value = $item.wordmark
                     Title = $item.title
-                    SvgUrl = $item.wordmark
                 })
 
                 [void]$svgOptions.Add(@{
@@ -512,7 +444,6 @@
                     Action = "Astro"
                     Value = $item.wordmark
                     Title = $item.title
-                    SvgUrl = $item.wordmark
                 })
 
                 [void]$svgOptions.Add(@{
@@ -522,7 +453,6 @@
                     Action = "Angular"
                     Value = $item.wordmark
                     Title = $item.title
-                    SvgUrl = $item.wordmark
                 })
                 
                 $counter += 7
@@ -614,7 +544,7 @@
                 $isTypeScript = $useTypeScript.ToLower() -eq 'y'
                 
                 # First get the SVG content
-                $svgContent = Invoke-ApiRequest -Uri $selectedOption.SvgUrl
+                $svgContent = Invoke-ApiRequest -Uri $selectedOption.Value
                 
                 if ($svgContent) {
                     # Prepare the request body
