@@ -39,13 +39,16 @@ Function Display-SvgSearchResults {
         
         foreach ($itemType in $itemTypes) {
             if ($item.PSObject.Properties.Name -contains $itemType) {
+
+                $LogoTypePreFix = if ($itemType -ne "route") { ($itemType.Substring(0,1).ToUpper() + $itemType.Substring(1)  + " ") } else { "" }
+                
                 if ($item.$itemType -is [PSCustomObject]) {
                     foreach ($colorType in $itemColors) {
-                        if ($item.route.PSObject.Properties.Name -contains $colorType) {
+                        if ($item.$itemType.PSObject.Properties.Name -contains $colorType) {
                             $svgOptions = Add-Options -StartNumber $counter `
                                                     -Actions $actions `
                                                     -SvgOptions $svgOptions `
-                                                    -LogoType ($colorType -replace '^.', { $_.Value.ToUpper() }) `
+                                                    -LogoType ($LogoTypePreFix + ($colorType -replace '^.', { $_.Value.ToUpper() })) `
                                                     -SvgUrl $item.$itemType.$colorType `
                                                     -Title $item.title `
                                                     -TableFormat $tableFormat
@@ -57,7 +60,7 @@ Function Display-SvgSearchResults {
                     $svgOptions = Add-Options -StartNumber $counter `
                                     -Actions $actions `
                                     -SvgOptions $svgOptions `
-                                    -LogoType "Default" `
+                                    -LogoType ($LogoTypePreFix + "Default") `
                                     -SvgUrl $item.$itemType `
                                     -Title $item.title `
                                     -TableFormat $tableFormat
