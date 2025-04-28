@@ -3,7 +3,7 @@
     RootModule = 'Get-SVGL.psm1'
     
     # Version number of this module.
-    ModuleVersion = '1.0.0'
+    ModuleVersion = '1.0.1'
     
     # ID used to uniquely identify this module
     GUID = 'b3e13b76-75c1-43a9-af77-ffd3c6b7a16a'
