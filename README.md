@@ -1,21 +1,19 @@
-# SVGL-PowerShell
-
+# SVGL-PowerShell (Get-SVGL)
 A PowerShell module for accessing the SVGL API to search for SVG logos.
+
+![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/Get-SVGL)
+![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/Get-SVGL)
+![License](https://img.shields.io/github/license/spaansba/SVGL-PowerShell)
 
 ## Installation
 
 ### Manual Installation
 
-1. Download or clone this repository
-2. Copy the `SVGL-PowerShell` folder to a directory in your PSModulePath
-   - To find your PSModulePath directories, run: `$env:PSModulePath -split ';'`
-   - Common locations: 
-     - `C:\Users\<username>\Documents\PowerShell\Modules`
-     - `C:\Program Files\PowerShell\Modules`
-3. Import the module:
-   ```powershell
-   Import-Module SVGL-PowerShell
-   ```
+From [PowerShell Gallery](https://www.powershellgallery.com/packages/Get-SVGL):
+
+```powershell
+Install-Module -Name Get-SVGL
+```
 
 ## Usage
 
