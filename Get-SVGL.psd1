@@ -3,7 +3,7 @@
     RootModule = 'Get-SVGL.psm1'
     
     # Version number of this module.
-    ModuleVersion = '1.0.3'
+    ModuleVersion = '1.0.4'
     
     # ID used to uniquely identify this module
     GUID = 'b3e13b76-75c1-43a9-af77-ffd3c6b7a16a'
@@ -21,7 +21,7 @@
     Description = 'PowerShell module for accessing the SVGL API to search for SVG logos'
     
     # Minimum version of the Windows PowerShell engine required by this module
-    PowerShellVersion = '5.1'
+    PowerShellVersion = '7.0'
     
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
     FunctionsToExport = @('Get-Svgl')

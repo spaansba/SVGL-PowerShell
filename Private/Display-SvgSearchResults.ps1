@@ -185,7 +185,7 @@ Function Display-SvgSearchResults {
                     Write-Host "Copied Angular component to clipboard for: $($selectedOption.Title) ($($selectedOption.LogoType))" -ForegroundColor Green
                 }
             }
-            "None" {
+            "Astro" {
                 Write-Host "This option is not implemented yet" -ForegroundColor Yellow
             }
         }
