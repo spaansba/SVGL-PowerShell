@@ -8,6 +8,7 @@ Function Display-SvgSearchResults {
     . "$PSScriptRoot\Handlers\Parse-SvgContent.ps1"
     . "$PSScriptRoot\Handlers\Get-VueCode.ps1"
     . "$PSScriptRoot\Handlers\Get-SvelteCode.ps1"
+    . "$PSScriptRoot\Handlers\Get-AngularCode.ps1"
     
     # Display results count
     $count = $Results.Count
@@ -101,18 +102,28 @@ Function Display-SvgSearchResults {
                         SvgUrl = $item.route.light
                     })
                     
-                    # Add placeholders for the remaining options
-                    foreach ($i in 6..7) {
-                        [void]$svgOptions.Add(@{
-                            Number = ($counter+$i-1)
-                            Type = "Placeholder"
-                            Source = "Light"
-                            Action = "None"
-                            Value = "Not implemented"
-                            Title = $item.title
-                            SvgUrl = $item.route.light
-                        })
-                    }
+                    # Add placeholder for Astro
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+5)
+                        Type = "Placeholder"
+                        Source = "Light"
+                        Action = "None"
+                        Value = "Not implemented"
+                        Title = $item.title
+                        SvgUrl = $item.route.light
+                    })
+                    
+                    # Add Angular option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+6)
+                        Type = "Angular"
+                        Source = "Light"
+                        Action = "Angular"
+                        Value = $item.route.light
+                        Title = $item.title
+                        SvgUrl = $item.route.light
+                    })
+                    
                     $counter += 7
                 }
                 
@@ -175,18 +186,28 @@ Function Display-SvgSearchResults {
                         SvgUrl = $item.route.dark
                     })
                     
-                    # Add placeholders for the remaining options
-                    foreach ($i in 6..7) {
-                        [void]$svgOptions.Add(@{
-                            Number = ($counter+$i-1)
-                            Type = "Placeholder"
-                            Source = "Dark"
-                            Action = "None"
-                            Value = "Not implemented"
-                            Title = $item.title
-                            SvgUrl = $item.route.dark
-                        })
-                    }
+                    # Add placeholder for Astro
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+5)
+                        Type = "Placeholder"
+                        Source = "Dark"
+                        Action = "None"
+                        Value = "Not implemented"
+                        Title = $item.title
+                        SvgUrl = $item.route.dark
+                    })
+                    
+                    # Add Angular option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+6)
+                        Type = "Angular"
+                        Source = "Dark"
+                        Action = "Angular"
+                        Value = $item.route.dark
+                        Title = $item.title
+                        SvgUrl = $item.route.dark
+                    })
+                    
                     $counter += 7
                 }
             } 
@@ -248,18 +269,28 @@ Function Display-SvgSearchResults {
                     SvgUrl = $item.route
                 })
                 
-                # Add placeholders for the remaining options
-                foreach ($i in 6..7) {
-                    [void]$svgOptions.Add(@{
-                        Number = ($counter+$i-1)
-                        Type = "Placeholder"
-                        Source = "Default"
-                        Action = "None"
-                        Value = "Not implemented"
-                        Title = $item.title
-                        SvgUrl = $item.route
-                    })
-                }
+                # Add placeholder for Astro
+                [void]$svgOptions.Add(@{
+                    Number = ($counter+5)
+                    Type = "Placeholder"
+                    Source = "Default"
+                    Action = "None"
+                    Value = "Not implemented"
+                    Title = $item.title
+                    SvgUrl = $item.route
+                })
+                
+                # Add Angular option
+                [void]$svgOptions.Add(@{
+                    Number = ($counter+6)
+                    Type = "Angular"
+                    Source = "Default"
+                    Action = "Angular"
+                    Value = $item.route
+                    Title = $item.title
+                    SvgUrl = $item.route
+                })
+                
                 $counter += 7
             }
         }
@@ -326,18 +357,28 @@ Function Display-SvgSearchResults {
                         SvgUrl = $item.wordmark.light
                     })
                     
-                    # Add placeholders for the remaining options
-                    foreach ($i in 6..7) {
-                        [void]$svgOptions.Add(@{
-                            Number = ($counter+$i-1)
-                            Type = "Placeholder"
-                            Source = "Wordmark Light"
-                            Action = "None"
-                            Value = "Not implemented"
-                            Title = $item.title
-                            SvgUrl = $item.wordmark.light
-                        })
-                    }
+                    # Add placeholder for Astro
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+5)
+                        Type = "Placeholder"
+                        Source = "Wordmark Light"
+                        Action = "None"
+                        Value = "Not implemented"
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.light
+                    })
+                    
+                    # Add Angular option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+6)
+                        Type = "Angular"
+                        Source = "Wordmark Light"
+                        Action = "Angular"
+                        Value = $item.wordmark.light
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.light
+                    })
+                    
                     $counter += 7
                 }
                 
@@ -400,18 +441,28 @@ Function Display-SvgSearchResults {
                         SvgUrl = $item.wordmark.dark
                     })
                     
-                    # Add placeholders for the remaining options
-                    foreach ($i in 6..7) {
-                        [void]$svgOptions.Add(@{
-                            Number = ($counter+$i-1)
-                            Type = "Placeholder"
-                            Source = "Wordmark Dark"
-                            Action = "None"
-                            Value = "Not implemented"
-                            Title = $item.title
-                            SvgUrl = $item.wordmark.dark
-                        })
-                    }
+                    # Add placeholder for Astro
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+5)
+                        Type = "Placeholder"
+                        Source = "Wordmark Dark"
+                        Action = "None"
+                        Value = "Not implemented"
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.dark
+                    })
+                    
+                    # Add Angular option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+6)
+                        Type = "Angular"
+                        Source = "Wordmark Dark"
+                        Action = "Angular"
+                        Value = $item.wordmark.dark
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.dark
+                    })
+                    
                     $counter += 7
                 }
             } 
@@ -473,18 +524,28 @@ Function Display-SvgSearchResults {
                     SvgUrl = $item.wordmark
                 })
                 
-                # Add placeholders for the remaining options
-                foreach ($i in 6..7) {
-                    [void]$svgOptions.Add(@{
-                        Number = ($counter+$i-1)
-                        Type = "Placeholder"
-                        Source = "Wordmark"
-                        Action = "None"
-                        Value = "Not implemented"
-                        Title = $item.title
-                        SvgUrl = $item.wordmark
-                    })
-                }
+                # Add placeholder for Astro
+                [void]$svgOptions.Add(@{
+                    Number = ($counter+5)
+                    Type = "Placeholder"
+                    Source = "Wordmark"
+                    Action = "None"
+                    Value = "Not implemented"
+                    Title = $item.title
+                    SvgUrl = $item.wordmark
+                })
+                
+                # Add Angular option
+                [void]$svgOptions.Add(@{
+                    Number = ($counter+6)
+                    Type = "Angular"
+                    Source = "Wordmark"
+                    Action = "Angular"
+                    Value = $item.wordmark
+                    Title = $item.title
+                    SvgUrl = $item.wordmark
+                })
+                
                 $counter += 7
             }
         }
@@ -637,6 +698,24 @@ Function Display-SvgSearchResults {
                     
                     $tsMessage = if ($lang) { " with TypeScript" } else { "" }
                     Write-Host "Copied Svelte component$tsMessage to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
+                }
+            }
+            "Angular" {
+                # First get the SVG content
+                $svgContent = Invoke-ApiRequest -Uri $selectedOption.Value
+                
+                if ($svgContent) {
+                    # Generate Angular component
+                    # Use title as component name (ensure valid name by removing special chars and capitalizing)
+                    $componentName = $selectedOption.Title -replace '[^a-zA-Z0-9]', '' 
+                    $componentName = (Get-Culture).TextInfo.ToTitleCase($componentName)
+                    
+                    $angularComponent = Get-AngularCode -Content $svgContent -ComponentName $componentName
+                    
+                    # Copy Angular component to clipboard
+                    $angularComponent | Set-Clipboard
+                    
+                    Write-Host "Copied Angular component to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
                 }
             }
             "None" {
