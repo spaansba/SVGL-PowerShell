@@ -9,8 +9,6 @@ function Get-Svgl {
         [string]$Category = ""
     )
 
-    . .\Formatting\Format-ColumnOutput.ps1
-    . .\Search\Find-Svg.ps1
     # Define valid categories
     $validCategories = @(
         'All', 'AI', 'Software', 'Hardware', 'Library', 'Hosting', 'Framework',
@@ -96,3 +94,6 @@ function Get-Svgl {
         Write-Error "Error making request to SVGL API: $_"
     }
 }
+
+# Export the function
+Export-ModuleMember -Function Get-Svgl
