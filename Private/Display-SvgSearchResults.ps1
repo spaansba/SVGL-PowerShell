@@ -722,6 +722,7 @@
                 Write-Host "This option is not implemented yet" -ForegroundColor Yellow
             }
         }
+        Write-Host ""
     }
     else {
         Write-Host "Invalid selection" -ForegroundColor Red
