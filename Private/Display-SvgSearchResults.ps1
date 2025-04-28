@@ -1,4 +1,4 @@
-Function Display-SvgSearchResults {
+    Function Display-SvgSearchResults {
     param (
         [array]$Results,
         [string]$SearchTerm
@@ -9,6 +9,7 @@ Function Display-SvgSearchResults {
     . "$PSScriptRoot\Handlers\Get-VueCode.ps1"
     . "$PSScriptRoot\Handlers\Get-SvelteCode.ps1"
     . "$PSScriptRoot\Handlers\Get-AngularCode.ps1"
+    . "$PSScriptRoot\Handlers\Get-AstroCode.ps1"
     
     # Display results count
     $count = $Results.Count
@@ -102,13 +103,13 @@ Function Display-SvgSearchResults {
                         SvgUrl = $item.route.light
                     })
                     
-                    # Add placeholder for Astro
+                    # Add Astro option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+5)
-                        Type = "Placeholder"
+                        Type = "Astro"
                         Source = "Light"
-                        Action = "None"
-                        Value = "Not implemented"
+                        Action = "Astro"
+                        Value = $item.route.light
                         Title = $item.title
                         SvgUrl = $item.route.light
                     })
@@ -186,13 +187,13 @@ Function Display-SvgSearchResults {
                         SvgUrl = $item.route.dark
                     })
                     
-                    # Add placeholder for Astro
+                    # Add Astro option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+5)
-                        Type = "Placeholder"
+                        Type = "Astro"
                         Source = "Dark"
-                        Action = "None"
-                        Value = "Not implemented"
+                        Action = "Astro"
+                        Value = $item.route.dark
                         Title = $item.title
                         SvgUrl = $item.route.dark
                     })
@@ -269,13 +270,13 @@ Function Display-SvgSearchResults {
                     SvgUrl = $item.route
                 })
                 
-                # Add placeholder for Astro
+                # Add Astro option
                 [void]$svgOptions.Add(@{
                     Number = ($counter+5)
-                    Type = "Placeholder"
+                    Type = "Astro"
                     Source = "Default"
-                    Action = "None"
-                    Value = "Not implemented"
+                    Action = "Astro"
+                    Value = $item.route
                     Title = $item.title
                     SvgUrl = $item.route
                 })
@@ -357,13 +358,13 @@ Function Display-SvgSearchResults {
                         SvgUrl = $item.wordmark.light
                     })
                     
-                    # Add placeholder for Astro
+                    # Add Astro option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+5)
-                        Type = "Placeholder"
+                        Type = "Astro"
                         Source = "Wordmark Light"
-                        Action = "None"
-                        Value = "Not implemented"
+                        Action = "Astro"
+                        Value = $item.wordmark.light
                         Title = $item.title
                         SvgUrl = $item.wordmark.light
                     })
@@ -441,13 +442,13 @@ Function Display-SvgSearchResults {
                         SvgUrl = $item.wordmark.dark
                     })
                     
-                    # Add placeholder for Astro
+                    # Add Astro option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+5)
-                        Type = "Placeholder"
+                        Type = "Astro"
                         Source = "Wordmark Dark"
-                        Action = "None"
-                        Value = "Not implemented"
+                        Action = "Astro"
+                        Value = $item.wordmark.dark
                         Title = $item.title
                         SvgUrl = $item.wordmark.dark
                     })
@@ -524,13 +525,13 @@ Function Display-SvgSearchResults {
                     SvgUrl = $item.wordmark
                 })
                 
-                # Add placeholder for Astro
+                # Add Astro option
                 [void]$svgOptions.Add(@{
                     Number = ($counter+5)
-                    Type = "Placeholder"
+                    Type = "Astro"
                     Source = "Wordmark"
-                    Action = "None"
-                    Value = "Not implemented"
+                    Action = "Astro"
+                    Value = $item.wordmark
                     Title = $item.title
                     SvgUrl = $item.wordmark
                 })
