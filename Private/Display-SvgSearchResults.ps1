@@ -13,7 +13,6 @@
     
     # Display results count
     $count = $Results.Count
-    Write-Host ""
     Write-Host "Found $count results for '$SearchTerm'" -ForegroundColor Green
     Write-Host ""
     
@@ -30,16 +29,16 @@
     $counter = 1
     
     # Table format string for consistent display
-    $tableFormat = "{0,-15} | {1,-3} | {2,-7} | {3,-5} | {4,-3} | {5,-6} | {6,-5} | {7,-7}"
+    $tableFormat = "{0,-15} │ {1,-3} │ {2,-7} │ {3,-5} │ {4,-3} │ {5,-6} │ {6,-5} │ {7,-7}"
     
     # Process each result
     foreach ($item in $Results) {
         # Display title as header
-        Write-Host "Title: $($item.title)"
+        Write-Host "$($item.title)" -ForegroundColor Cyan
         
         # Display table header
         Write-Host ($tableFormat -f "SVG", "URL", "Raw SVG", "React", "Vue", "Svelte", "Astro", "Angular")
-        Write-Host ($tableFormat -f ("-" * 15), "---", ("-" * 7), "-----", "---", "------", "-----", "-------")
+        Write-Host ($tableFormat -f ("─" * 15), "───", ("─" * 7), "─────", "───", "──────", "─────", "───────")
         
         # Process route variants
         if ($item.PSObject.Properties.Name -contains "route") {

@@ -3,7 +3,6 @@ Function Find-Svg {
     param (
         [string]$Search
     )
-    Write-Host ""
     Write-Host "Searching for '$Search'..." -ForegroundColor Cyan
     $uri = "https://api.svgl.app?search=$Search"
     
