@@ -9,7 +9,8 @@ Function Display-SvgSearchResults {
     . "$PSScriptRoot\Handlers\Get-SvelteCode.ps1"
     . "$PSScriptRoot\Handlers\Get-AngularCode.ps1"
     . "$PSScriptRoot\Handlers\Get-AstroCode.ps1"
-    # . "$PSScriptRoot\Add-Options.ps1"
+    . "$PSScriptRoot\Options\Add-Options.ps1"
+    . "$PSScriptRoot\Api\Invoke-ApiRequest.ps1"
 
     $count = $Results.Count
     Write-Host "Found $count results for '$SearchTerm'" -ForegroundColor Green
@@ -31,51 +32,44 @@ Function Display-SvgSearchResults {
     
     foreach ($item in $Results) {
         Write-Host "$($item.title)" -ForegroundColor Cyan
-        # Display table header
         Write-Host ($tableFormat -f $headers)
-        
         Write-Host ($tableFormat -f ("─" * 15), "───", ("─" * 7), "─────", "───", "──────", "─────", "───────")
         
-        # Process route variants
         if ($item.PSObject.Properties.Name -contains "route") {
             if ($item.route -is [PSCustomObject]) {
-                if ($item.route.PSObject.Properties.Name -contains "light") {
-                    Write-Host ($tableFormat -f "Light", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
 
+                if ($item.route.PSObject.Properties.Name -contains "light") {
                    $svgOptions = Add-Options -StartNumber $counter `
                                 -Actions $actions `
                                 -SvgOptions $svgOptions `
-                                -Source "Light" `
+                                -LogoType "Light" `
                                 -SvgUrl $item.route.light `
-                                -Title $item.title
+                                -Title $item.title `
+                                -TableFormat $tableFormat
 
                     $counter += $actions.length
                    
                 }
                 
-                # Handle dark route
                 if ($item.route.PSObject.Properties.Name -contains "dark") {
-                    Write-Host ($tableFormat -f "Dark", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
-                    
                      $svgOptions = Add-Options -StartNumber $counter `
                                 -Actions $actions `
                                 -SvgOptions $svgOptions `
-                                -Source "Dark" `
+                                -LogoType "Dark" `
                                 -SvgUrl $item.route.dark `
-                                -Title $item.title
+                                -Title $item.title `
+                                -TableFormat $tableFormat
                     $counter += $actions.length
                 }
             } 
             else {
-                Write-Host "here"
-                Write-Host ($tableFormat -f "Default", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
-                
                 $svgOptions = Add-Options -StartNumber $counter `
                                 -Actions $actions `
                                 -SvgOptions $svgOptions `
-                                -Source "Default" `
+                                -LogoType "Default" `
                                 -SvgUrl $item.route `
-                                -Title $item.title
+                                -Title $item.title `
+                                -TableFormat $tableFormat
 
                 $counter += $actions.length
             }
@@ -84,43 +78,42 @@ Function Display-SvgSearchResults {
         # Process wordmark variants
         if ($item.PSObject.Properties.Name -contains "wordmark") {
             if ($item.wordmark -is [PSCustomObject]) {
-                # Handle light wordmark
                 if ($item.wordmark.PSObject.Properties.Name -contains "light") {
-                    Write-Host ($tableFormat -f "Wordmark Light", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
-                    
+ 
                     $svgOptions = Add-Options -StartNumber $counter `
                             -Actions $actions `
                             -SvgOptions $svgOptions `
-                            -Source "Wordmark Light" `
+                            -LogoType "Wordmark Light" `
                             -SvgUrl $item.wordmark.light `
-                            -Title $item.title
+                            -Title $item.title `
+                            -TableFormat $tableFormat
                     
                    $counter += $actions.length
                 }
                 
                 # Handle dark wordmark
                 if ($item.wordmark.PSObject.Properties.Name -contains "dark") {
-                    Write-Host ($tableFormat -f "Wordmark Dark", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
                     
                     $svgOptions = Add-Options -StartNumber $counter `
                             -Actions $actions `
                             -SvgOptions $svgOptions `
-                            -Source "Wordmark Dark" `
+                            -LogoType "Wordmark Dark" `
                             -SvgUrl $item.wordmark.dark `
-                            -Title $item.title
+                            -Title $item.title `
+                            -TableFormat $tableFormat
                     
                     $counter += $actions.length
                 }
             } 
             else {
-                Write-Host ($tableFormat -f "Wordmark", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
-                
+
                 $svgOptions = Add-Options -StartNumber $counter `
                             -Actions $actions `
                             -SvgOptions $svgOptions `
-                            -Source "Wordmark" `
+                            -LogoType "Wordmark" `
                             -SvgUrl $item.wordmark `
-                            -Title $item.title
+                            -Title $item.title `
+                            -TableFormat $tableFormat
              
                 $counter += $actions.length
             }
@@ -137,54 +130,6 @@ Function Display-SvgSearchResults {
     }
     catch {
         $selectedOption = $null
-    }
-
-    # Helper function to get API response data
-    function Get-ApiResponseContent {
-        param (
-            [Parameter(Mandatory = $true)]
-            [PSObject]$Response
-        )
-        
-        # Check if the response has a data property (common API response pattern)
-        if ($Response.PSObject.Properties.Name -contains "data") {
-            return $Response.data
-        }
-        
-        # Otherwise return the full response
-        return $Response
-    }
-
-    # Helper function to process web requests
-    function Invoke-ApiRequest {
-        param (
-            [Parameter(Mandatory = $true)]
-            [string]$Uri,
-            
-            [Parameter()]
-            [string]$Method = "Get",
-            
-            [Parameter()]
-            [object]$Body,
-            
-            [Parameter()]
-            [hashtable]$Headers
-        )
-        
-        try {
-            if ($Method -eq "Get") {
-                $response = Invoke-WebRequest -Uri $Uri -UseBasicParsing
-                return $response.Content
-            }
-            else {
-                $response = Invoke-RestMethod -Uri $Uri -Method $Method -Body $Body -Headers $Headers
-                return Get-ApiResponseContent -Response $response
-            }
-        }
-        catch {
-            Write-Host "Error making request to $Uri : $_" -ForegroundColor Red
-            return $null
-        }
     }
 
     # Handle selected option
