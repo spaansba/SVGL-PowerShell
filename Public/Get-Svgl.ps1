@@ -78,3 +78,4 @@ function Get-Svgl {
 }
 
 Export-ModuleMember -Function Get-Svgl
+

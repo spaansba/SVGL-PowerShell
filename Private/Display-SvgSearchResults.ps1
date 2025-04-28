@@ -127,7 +127,7 @@ Function Display-SvgSearchResults {
                         $reactComponent | Set-Clipboard
                         
                         $tsMessage = if ($isTypeScript) { "TypeScript" } else { "JavaScript" }
-                        Write-Host "Copied $tsMessage React component to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
+                        Write-Host "Copied $tsMessage React component to clipboard for: $($selectedOption.Title) ($($selectedOption.LogoType))" -ForegroundColor Green
                     }
                 }
             }
@@ -146,7 +146,7 @@ Function Display-SvgSearchResults {
                     $vueComponent | Set-Clipboard
                     
                     $tsMessage = if ($isTypeScript) { "TypeScript" } else { "JavaScript" }
-                    Write-Host "Copied $tsMessage Vue component to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
+                    Write-Host "Copied $tsMessage Vue component to clipboard for: $($selectedOption.Title) ($($selectedOption.LogoType))" -ForegroundColor Green
                 }
             }
             "Svelte" {
@@ -164,7 +164,7 @@ Function Display-SvgSearchResults {
                     $svelteComponent | Set-Clipboard
                     
                     $tsMessage = if ($isTypeScript) { "TypeScript" } else { "JavaScript" }
-                    Write-Host "Copied $tsMessage  Svelte component to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
+                    Write-Host "Copied $tsMessage  Svelte component to clipboard for: $($selectedOption.Title) ($($selectedOption.LogoType))" -ForegroundColor Green
                 }
             }
             "Angular" {
@@ -182,7 +182,7 @@ Function Display-SvgSearchResults {
                     # Copy Angular component to clipboard
                     $angularComponent | Set-Clipboard
                     
-                    Write-Host "Copied Angular component to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
+                    Write-Host "Copied Angular component to clipboard for: $($selectedOption.Title) ($($selectedOption.LogoType))" -ForegroundColor Green
                 }
             }
             "None" {
