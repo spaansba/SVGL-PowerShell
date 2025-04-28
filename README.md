@@ -39,39 +39,6 @@ Get-Svgl -c Framework
 Get-Svgl "React"
 ```
 
-## Available Categories
-
-- AI
-- Software
-- Hardware
-- Library
-- Hosting
-- Framework
-- Devtool
-- Monorepo
-- CMS
-- Database
-- Compiler
-- Crypto
-- Cybersecurity
-- Social
-- Entertainment
-- Browser
-- Language
-- Education
-- Design
-- Community
-- Marketplace
-- Music
-- Vercel
-- Google
-- Payment
-- VoidZero
-- Authentication
-- IoT
-- Config
-- Secrets
-
 ## License
 
 See the [LICENSE](https://github.com/spaansba/SVGL-PowerShell/blob/main/LICENSE) file for details.
