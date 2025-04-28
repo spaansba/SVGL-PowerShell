@@ -96,4 +96,3 @@ function Get-Svgl {
         Write-Error "Error making request to SVGL API: $_"
     }
 }
-Get-Svgl

@@ -20,27 +20,27 @@ Function Find-Svg {
         # Display detailed results
         foreach ($item in $items) {
             Write-Host "$($item.title)" -ForegroundColor Yellow
-            Write-Host "  Category: $($item.category)"
-            Write-Host "  URL: $($item.url)"
+            Write-Host "Category: $($item.category)"
+            Write-Host "URL: $($item.url)"
             
             # Handle different route formats
             if ($item.PSObject.Properties.Name -contains "route") {
                 # Check if route is an object with light/dark properties
                 if ($item.route -is [PSCustomObject]) {
                     if ($item.route.PSObject.Properties.Name -contains "light") {
-                        Write-Host "  SVG (Light): $($item.route.light)"
+                        Write-Host "SVG (Light): $($item.route.light)"
                     }
                     
                     if ($item.route.PSObject.Properties.Name -contains "dark") {
-                        Write-Host "  SVG (Dark): $($item.route.dark)" 
+                        Write-Host "SVG (Dark): $($item.route.dark)" 
                     }
                 } 
                 # Handle case where route is a direct string
                 else {
-                    Write-Host "  SVG: $($item.route)"
+                    Write-Host "SVG: $($item.route)"
                 }
             } else {
-                Write-Host "  SVG: Not available"
+                Write-Host "SVG: Not available"
             }
             
             # Handle wordmark if present
@@ -48,16 +48,16 @@ Function Find-Svg {
                 # Check if wordmark is an object with light/dark properties
                 if ($item.wordmark -is [PSCustomObject]) {
                     if ($item.wordmark.PSObject.Properties.Name -contains "light") {
-                        Write-Host "  Wordmark (Light): $($item.wordmark.light)"
+                        Write-Host "Wordmark (Light): $($item.wordmark.light)"
                     }
                     
                     if ($item.wordmark.PSObject.Properties.Name -contains "dark") {
-                        Write-Host "  Wordmark (Dark): $($item.wordmark.dark)" 
+                        Write-Host "Wordmark (Dark): $($item.wordmark.dark)" 
                     }
                 } 
                 # Handle case where wordmark is a direct string
                 else {
-                    Write-Host "  Wordmark: $($item.wordmark)"
+                    Write-Host "Wordmark: $($item.wordmark)"
                 }
             }
             
