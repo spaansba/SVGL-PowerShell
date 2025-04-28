@@ -4,6 +4,11 @@ Function Display-SvgSearchResults {
         [string]$SearchTerm
     )
     
+    # Import handler functions
+    . "$PSScriptRoot\Handlers\Parse-SvgContent.ps1"
+    . "$PSScriptRoot\Handlers\Get-VueCode.ps1"
+    . "$PSScriptRoot\Handlers\Get-SvelteCode.ps1"
+    
     # Display results count
     $count = $Results.Count
     Write-Host ""
@@ -74,8 +79,30 @@ Function Display-SvgSearchResults {
                         SvgUrl = $item.route.light
                     })
                     
-                    # Add placeholders for the other options
-                    foreach ($i in 4..7) {
+                    # Add Vue option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+3)
+                        Type = "Vue"
+                        Source = "Light"
+                        Action = "Vue"
+                        Value = $item.route.light
+                        Title = $item.title
+                        SvgUrl = $item.route.light
+                    })
+                    
+                    # Add Svelte option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+4)
+                        Type = "Svelte"
+                        Source = "Light"
+                        Action = "Svelte"
+                        Value = $item.route.light
+                        Title = $item.title
+                        SvgUrl = $item.route.light
+                    })
+                    
+                    # Add placeholders for the remaining options
+                    foreach ($i in 6..7) {
                         [void]$svgOptions.Add(@{
                             Number = ($counter+$i-1)
                             Type = "Placeholder"
@@ -126,8 +153,30 @@ Function Display-SvgSearchResults {
                         SvgUrl = $item.route.dark
                     })
                     
-                    # Add placeholders for the other options
-                    foreach ($i in 4..7) {
+                    # Add Vue option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+3)
+                        Type = "Vue"
+                        Source = "Dark"
+                        Action = "Vue"
+                        Value = $item.route.dark
+                        Title = $item.title
+                        SvgUrl = $item.route.dark
+                    })
+                    
+                    # Add Svelte option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+4)
+                        Type = "Svelte"
+                        Source = "Dark"
+                        Action = "Svelte"
+                        Value = $item.route.dark
+                        Title = $item.title
+                        SvgUrl = $item.route.dark
+                    })
+                    
+                    # Add placeholders for the remaining options
+                    foreach ($i in 6..7) {
                         [void]$svgOptions.Add(@{
                             Number = ($counter+$i-1)
                             Type = "Placeholder"
@@ -177,8 +226,30 @@ Function Display-SvgSearchResults {
                     SvgUrl = $item.route
                 })
                 
-                # Add placeholders for the other options
-                foreach ($i in 4..7) {
+                # Add Vue option
+                [void]$svgOptions.Add(@{
+                    Number = ($counter+3)
+                    Type = "Vue"
+                    Source = "Default"
+                    Action = "Vue"
+                    Value = $item.route
+                    Title = $item.title
+                    SvgUrl = $item.route
+                })
+                
+                # Add Svelte option
+                [void]$svgOptions.Add(@{
+                    Number = ($counter+4)
+                    Type = "Svelte"
+                    Source = "Default"
+                    Action = "Svelte"
+                    Value = $item.route
+                    Title = $item.title
+                    SvgUrl = $item.route
+                })
+                
+                # Add placeholders for the remaining options
+                foreach ($i in 6..7) {
                     [void]$svgOptions.Add(@{
                         Number = ($counter+$i-1)
                         Type = "Placeholder"
@@ -233,8 +304,30 @@ Function Display-SvgSearchResults {
                         SvgUrl = $item.wordmark.light
                     })
                     
-                    # Add placeholders for the other options
-                    foreach ($i in 4..7) {
+                    # Add Vue option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+3)
+                        Type = "Vue"
+                        Source = "Wordmark Light"
+                        Action = "Vue"
+                        Value = $item.wordmark.light
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.light
+                    })
+                    
+                    # Add Svelte option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+4)
+                        Type = "Svelte"
+                        Source = "Wordmark Light"
+                        Action = "Svelte"
+                        Value = $item.wordmark.light
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.light
+                    })
+                    
+                    # Add placeholders for the remaining options
+                    foreach ($i in 6..7) {
                         [void]$svgOptions.Add(@{
                             Number = ($counter+$i-1)
                             Type = "Placeholder"
@@ -285,8 +378,30 @@ Function Display-SvgSearchResults {
                         SvgUrl = $item.wordmark.dark
                     })
                     
-                    # Add placeholders for the other options
-                    foreach ($i in 4..7) {
+                    # Add Vue option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+3)
+                        Type = "Vue"
+                        Source = "Wordmark Dark"
+                        Action = "Vue"
+                        Value = $item.wordmark.dark
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.dark
+                    })
+                    
+                    # Add Svelte option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+4)
+                        Type = "Svelte"
+                        Source = "Wordmark Dark"
+                        Action = "Svelte"
+                        Value = $item.wordmark.dark
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.dark
+                    })
+                    
+                    # Add placeholders for the remaining options
+                    foreach ($i in 6..7) {
                         [void]$svgOptions.Add(@{
                             Number = ($counter+$i-1)
                             Type = "Placeholder"
@@ -336,8 +451,30 @@ Function Display-SvgSearchResults {
                     SvgUrl = $item.wordmark
                 })
                 
-                # Add placeholders for the other options
-                foreach ($i in 4..7) {
+                # Add Vue option
+                [void]$svgOptions.Add(@{
+                    Number = ($counter+3)
+                    Type = "Vue"
+                    Source = "Wordmark"
+                    Action = "Vue"
+                    Value = $item.wordmark
+                    Title = $item.title
+                    SvgUrl = $item.wordmark
+                })
+                
+                # Add Svelte option
+                [void]$svgOptions.Add(@{
+                    Number = ($counter+4)
+                    Type = "Svelte"
+                    Source = "Wordmark"
+                    Action = "Svelte"
+                    Value = $item.wordmark
+                    Title = $item.title
+                    SvgUrl = $item.wordmark
+                })
+                
+                # Add placeholders for the remaining options
+                foreach ($i in 6..7) {
                     [void]$svgOptions.Add(@{
                         Number = ($counter+$i-1)
                         Type = "Placeholder"
@@ -462,6 +599,44 @@ Function Display-SvgSearchResults {
                         $tsMessage = if ($isTypeScript) { " with TypeScript" } else { "" }
                         Write-Host "Copied React component$tsMessage to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
                     }
+                }
+            }
+            "Vue" {
+                # Ask if TypeScript is needed
+                $useTypeScript = Read-Host "Do you want TypeScript support? (y/n)"
+                $lang = if ($useTypeScript.ToLower() -eq 'y') { "ts" } else { "" }
+                
+                # First get the SVG content
+                $svgContent = Invoke-ApiRequest -Uri $selectedOption.Value
+                
+                if ($svgContent) {
+                    # Generate Vue component
+                    $vueComponent = Get-VueCode -Content $svgContent -Lang $lang
+                    
+                    # Copy Vue component to clipboard
+                    $vueComponent | Set-Clipboard
+                    
+                    $tsMessage = if ($lang) { " with TypeScript" } else { "" }
+                    Write-Host "Copied Vue component$tsMessage to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
+                }
+            }
+            "Svelte" {
+                # Ask if TypeScript is needed
+                $useTypeScript = Read-Host "Do you want TypeScript support? (y/n)"
+                $lang = if ($useTypeScript.ToLower() -eq 'y') { "ts" } else { "" }
+                
+                # First get the SVG content
+                $svgContent = Invoke-ApiRequest -Uri $selectedOption.Value
+                
+                if ($svgContent) {
+                    # Generate Svelte component
+                    $svelteComponent = Get-SvelteCode -Content $svgContent -Lang $lang
+                    
+                    # Copy Svelte component to clipboard
+                    $svelteComponent | Set-Clipboard
+                    
+                    $tsMessage = if ($lang) { " with TypeScript" } else { "" }
+                    Write-Host "Copied Svelte component$tsMessage to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
                 }
             }
             "None" {
