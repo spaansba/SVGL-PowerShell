@@ -4,10 +4,10 @@
 # Get the path to the module
 $ModulePath = $PSScriptRoot
 
-# Load all private functions
+# Load private functions from the root Private directory only (no subdirectories)
 $PrivateFunctionsPath = Join-Path -Path $ModulePath -ChildPath 'Private'
 if (Test-Path -Path $PrivateFunctionsPath) {
-    $PrivateFunctions = Get-ChildItem -Path $PrivateFunctionsPath -Filter '*.ps1' -Recurse -ErrorAction SilentlyContinue
+    $PrivateFunctions = Get-ChildItem -Path $PrivateFunctionsPath -Filter '*.ps1' -Depth 0 -ErrorAction SilentlyContinue
     foreach ($Function in $PrivateFunctions) {
         try {
             . $Function.FullName
