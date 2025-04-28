@@ -1,6 +1,7 @@
 # Constants for table formatting
 $script:SVG_TABLE_FORMAT = "{0,-15} | {1,-3} | {2,-3} | {3,-5} | {4,-3} | {5,-6} | {6,-5} | {7,-7}"
-$script:SVG_TABLE_HEADERS = @("SVG", "URL", "Raw SVG", "React", "Vue", "Svelte", "Astro", "Angular")
+$script:SVG_TABLE_HEADERS = @("Logo Type", "URL", "Raw SVG", "React", "Vue", "Svelte", "Astro", "Angular")
+$script:SVG_TABLE_HEADER_COUNT = $script:SVG_TABLE_HEADERS.Count
 $script:SVG_TABLE_WIDTHS = @(15, 3, 7, 5, 3, 6, 5, 7)
 
 # Constants for API URLs
