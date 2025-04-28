@@ -126,8 +126,8 @@ Function Display-SvgSearchResults {
                         # Copy React component to clipboard
                         $reactComponent | Set-Clipboard
                         
-                        $tsMessage = if ($isTypeScript) { " with TypeScript" } else { "" }
-                        Write-Host "Copied React component$tsMessage to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
+                        $tsMessage = if ($isTypeScript) { "TypeScript" } else { "JavaScript" }
+                        Write-Host "Copied $tsMessage React component to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
                     }
                 }
             }
@@ -145,8 +145,8 @@ Function Display-SvgSearchResults {
                     # Copy Vue component to clipboard
                     $vueComponent | Set-Clipboard
                     
-                    $tsMessage = if ($isTypeScript) { " with TypeScript" } else { "" }
-                    Write-Host "Copied Vue component$tsMessage to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
+                    $tsMessage = if ($isTypeScript) { "TypeScript" } else { "JavaScript" }
+                    Write-Host "Copied $tsMessage Vue component to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
                 }
             }
             "Svelte" {
@@ -163,8 +163,8 @@ Function Display-SvgSearchResults {
                     # Copy Svelte component to clipboard
                     $svelteComponent | Set-Clipboard
                     
-                    $tsMessage = if ($lang) { " with TypeScript" } else { "" }
-                    Write-Host "Copied Svelte component$tsMessage to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
+                    $tsMessage = if ($isTypeScript) { "TypeScript" } else { "JavaScript" }
+                    Write-Host "Copied $tsMessage  Svelte component to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
                 }
             }
             "Angular" {
