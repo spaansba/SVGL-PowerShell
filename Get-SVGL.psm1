@@ -1,5 +1,6 @@
 # Get the path to the module
 $ModulePath = $PSScriptRoot
+New-Alias -Name "svgl" -Value "Get-Svgl"
 
 # Load private functions from the root Private directory only (no subdirectories)
 $PrivateFunctionsPath = Join-Path -Path $ModulePath -ChildPath 'Private'
