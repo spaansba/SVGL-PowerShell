@@ -18,6 +18,7 @@ function Get-Svgl {
     )
     Write-Host ""
     if ($Search -ne "") {
+        $Search = $Search.Substring(0,1).ToUpper() + $Search.Substring(1).ToLower()
         $results = Find-Svg -Search $Search
         Display-SvgSearchResults -Results $results -SearchTerm $Search
         return
