@@ -4,46 +4,37 @@
         [string]$SearchTerm
     )
     
-    # Import handler functions
     . "$PSScriptRoot\Handlers\Parse-SvgContent.ps1"
     . "$PSScriptRoot\Handlers\Get-VueCode.ps1"
     . "$PSScriptRoot\Handlers\Get-SvelteCode.ps1"
     . "$PSScriptRoot\Handlers\Get-AngularCode.ps1"
     . "$PSScriptRoot\Handlers\Get-AstroCode.ps1"
     
-    # Display results count
     $count = $Results.Count
     Write-Host "Found $count results for '$SearchTerm'" -ForegroundColor Green
     Write-Host ""
     
-    # Early return for empty results
     if ($Results.Count -eq 0) {
         Write-Host "No results found for '$SearchTerm'" -ForegroundColor Yellow
         Write-Host "Try Get-Svgl for a list of svgs" -ForegroundColor Yellow
         Write-Host "Or try Get-Svgl -c <category> to only return svgs in a category" -ForegroundColor Yellow
+        Write-Host ""
         return
     }
-    
-    # Initialize options array
+
     $svgOptions = [System.Collections.ArrayList]::new()
     $counter = 1
-    
-    # Table format string for consistent display
     $tableFormat = "{0,-15} │ {1,-3} │ {2,-7} │ {3,-5} │ {4,-3} │ {5,-6} │ {6,-5} │ {7,-7}"
     
-    # Process each result
     foreach ($item in $Results) {
-        # Display title as header
         Write-Host "$($item.title)" -ForegroundColor Cyan
-        
         # Display table header
-        Write-Host ($tableFormat -f "SVG", "URL", "Raw SVG", "React", "Vue", "Svelte", "Astro", "Angular")
+        Write-Host ($tableFormat -f "Logo Type", "URL", "Raw SVG", "React", "Vue", "Svelte", "Astro", "Angular")
         Write-Host ($tableFormat -f ("─" * 15), "───", ("─" * 7), "─────", "───", "──────", "─────", "───────")
         
         # Process route variants
         if ($item.PSObject.Properties.Name -contains "route") {
             if ($item.route -is [PSCustomObject]) {
-                # Handle light route
                 if ($item.route.PSObject.Properties.Name -contains "light") {
                     Write-Host ($tableFormat -f "Light", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
                     
@@ -212,6 +203,7 @@
                 }
             } 
             else {
+                Write-Host "here"
                 Write-Host ($tableFormat -f "Default", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
                 
                 # Add URL option
@@ -386,7 +378,6 @@
                 if ($item.wordmark.PSObject.Properties.Name -contains "dark") {
                     Write-Host ($tableFormat -f "Wordmark Dark", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
                     
-                    # Add URL option
                     [void]$svgOptions.Add(@{
                         Number = $counter
                         Type = "URL"
@@ -397,7 +388,6 @@
                         SvgUrl = $item.wordmark.dark
                     })
                     
-                    # Add Raw SVG option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+1)
                         Type = "Raw SVG"
@@ -408,7 +398,6 @@
                         SvgUrl = $item.wordmark.dark
                     })
                     
-                    # Add React option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+2)
                         Type = "React"
@@ -419,7 +408,6 @@
                         SvgUrl = $item.wordmark.dark
                     })
                     
-                    # Add Vue option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+3)
                         Type = "Vue"
@@ -430,7 +418,7 @@
                         SvgUrl = $item.wordmark.dark
                     })
                     
-                    # Add Svelte option
+
                     [void]$svgOptions.Add(@{
                         Number = ($counter+4)
                         Type = "Svelte"
@@ -441,7 +429,6 @@
                         SvgUrl = $item.wordmark.dark
                     })
                     
-                    # Add Astro option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+5)
                         Type = "Astro"
@@ -452,7 +439,6 @@
                         SvgUrl = $item.wordmark.dark
                     })
                     
-                    # Add Angular option
                     [void]$svgOptions.Add(@{
                         Number = ($counter+6)
                         Type = "Angular"
@@ -469,7 +455,6 @@
             else {
                 Write-Host ($tableFormat -f "Wordmark", $counter, ($counter+1), ($counter+2), ($counter+3), ($counter+4), ($counter+5), ($counter+6))
                 
-                # Add URL option
                 [void]$svgOptions.Add(@{
                     Number = $counter
                     Type = "URL"
@@ -480,7 +465,6 @@
                     SvgUrl = $item.wordmark
                 })
                 
-                # Add Raw SVG option
                 [void]$svgOptions.Add(@{
                     Number = ($counter+1)
                     Type = "Raw SVG"
@@ -491,7 +475,6 @@
                     SvgUrl = $item.wordmark
                 })
                 
-                # Add React option
                 [void]$svgOptions.Add(@{
                     Number = ($counter+2)
                     Type = "React"
@@ -501,8 +484,7 @@
                     Title = $item.title
                     SvgUrl = $item.wordmark
                 })
-                
-                # Add Vue option
+
                 [void]$svgOptions.Add(@{
                     Number = ($counter+3)
                     Type = "Vue"
@@ -513,7 +495,6 @@
                     SvgUrl = $item.wordmark
                 })
                 
-                # Add Svelte option
                 [void]$svgOptions.Add(@{
                     Number = ($counter+4)
                     Type = "Svelte"
@@ -523,8 +504,7 @@
                     Title = $item.title
                     SvgUrl = $item.wordmark
                 })
-                
-                # Add Astro option
+
                 [void]$svgOptions.Add(@{
                     Number = ($counter+5)
                     Type = "Astro"
@@ -534,8 +514,7 @@
                     Title = $item.title
                     SvgUrl = $item.wordmark
                 })
-                
-                # Add Angular option
+
                 [void]$svgOptions.Add(@{
                     Number = ($counter+6)
                     Type = "Angular"
@@ -553,10 +532,8 @@
         Write-Host ""
     }
     
-    # Prompt for selection
-    $selection = Read-Host "Enter the number of the SVG you want to use"
+    $selection = Read-Host "Enter the number of the SVG you want to copy"
     
-    # Process selection
     try {
         $selectionInt = [int]$selection
         $selectedOption = $svgOptions | Where-Object { $_.Number -eq $selectionInt }
@@ -620,6 +597,7 @@
                 # Copy SVG URL to clipboard
                 $selectedOption.Value | Set-Clipboard
                 Write-Host "Copied SVG URL to clipboard: $($selectedOption.Value)" -ForegroundColor Green
+                Start-Process $selectedOption.Value
             }
             "RawSVG" {
                 # Request SVG content and copy to clipboard
