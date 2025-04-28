@@ -56,8 +56,9 @@ function Get-Svgl {
         # For a specific category
         if (-not $showAllCategories) {
             # Display the filtered category
-            Write-Host "$Category $($response.Count)" -ForegroundColor Green
-            
+            Write-Host ""
+            Write-Host "$Category ($($response.Count))" -ForegroundColor Green
+
             # Sort items alphabetically by title
             $items = $response | Sort-Object -Property title
             
@@ -66,6 +67,8 @@ function Get-Svgl {
             
             # Format and display the titles
             Format-ColumnOutput -Items $titles
+
+            Write-Host ""
         }
         # For all categories grouped
         else {
@@ -75,7 +78,7 @@ function Get-Svgl {
             # Format the output
             foreach ($categoryGroup in $groupedByCategory) {
                 # Display category name in green
-                Write-Host "$($categoryGroup.Name) $($categoryGroup.Count)" -ForegroundColor Green
+                Write-Host "$($categoryGroup.Name) ($($categoryGroup.Count))" -ForegroundColor Green
                 
                 # Sort items alphabetically by title
                 $items = $categoryGroup.Group | Sort-Object -Property title
@@ -89,6 +92,10 @@ function Get-Svgl {
                 # Add a blank line between categories
                 Write-Host ""
             }
+            
+            Write-Host "Get-Svgl <name> will return the svg" -ForegroundColor Cyan
+            Write-Host "Or try Get-Svgl -c <category> to only return svgs in a category" -ForegroundColor Cyan
+            Write-Host ""
         }
     }
     catch {

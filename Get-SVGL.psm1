@@ -1,6 +1,3 @@
-# SVGL-PowerShell Module
-# GitHub: https://github.com/spaansba/SVGL-PowerShell
-
 # Get the path to the module
 $ModulePath = $PSScriptRoot
 

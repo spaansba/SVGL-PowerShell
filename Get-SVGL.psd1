@@ -39,7 +39,7 @@
     PrivateData = @{
         PSData = @{
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags = @('SVG', 'Logo', 'API')
+            Tags = @('SVG', 'Logo', 'API', "SVGL", "React", "Astro", "Vue", "Angular", "Svelte")
             
             # A URL to the license for this module.
             LicenseUri = 'https://github.com/spaansba/SVGL-PowerShell/blob/main/LICENSE'
