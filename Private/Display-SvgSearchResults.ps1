@@ -29,96 +29,43 @@ Function Display-SvgSearchResults {
     $tableFormat = "{0,-15} │ {1,-3} │ {2,-7} │ {3,-5} │ {4,-3} │ {5,-6} │ {6,-5} │ {7,-7}"
     $headers = "Logo Type", "URL", "Raw SVG", "React", "Vue", "Svelte", "Astro", "Angular"
     $actions = $headers | Where-Object { $_ -ne "Logo Type" }
-    
+    $itemColors = "light", "dark"
+    $itemTypes = "route", "wordmark"
+
     foreach ($item in $Results) {
         Write-Host "$($item.title)" -ForegroundColor Cyan
         Write-Host ($tableFormat -f $headers)
         Write-Host ($tableFormat -f ("─" * 15), "───", ("─" * 7), "─────", "───", "──────", "─────", "───────")
         
-        if ($item.PSObject.Properties.Name -contains "route") {
-            if ($item.route -is [PSCustomObject]) {
-
-                if ($item.route.PSObject.Properties.Name -contains "light") {
-                   $svgOptions = Add-Options -StartNumber $counter `
-                                -Actions $actions `
-                                -SvgOptions $svgOptions `
-                                -LogoType "Light" `
-                                -SvgUrl $item.route.light `
-                                -Title $item.title `
-                                -TableFormat $tableFormat
+        foreach ($itemType in $itemTypes) {
+            if ($item.PSObject.Properties.Name -contains $itemType) {
+                if ($item.$itemType -is [PSCustomObject]) {
+                    foreach ($colorType in $itemColors) {
+                        if ($item.route.PSObject.Properties.Name -contains $colorType) {
+                            $svgOptions = Add-Options -StartNumber $counter `
+                                                    -Actions $actions `
+                                                    -SvgOptions $svgOptions `
+                                                    -LogoType ($colorType -replace '^.', { $_.Value.ToUpper() }) `
+                                                    -SvgUrl $item.$itemType.$colorType `
+                                                    -Title $item.title `
+                                                    -TableFormat $tableFormat
+                            $counter += $actions.Length
+                        }
+                    }
+                } 
+                else {
+                    $svgOptions = Add-Options -StartNumber $counter `
+                                    -Actions $actions `
+                                    -SvgOptions $svgOptions `
+                                    -LogoType "Default" `
+                                    -SvgUrl $item.$itemType `
+                                    -Title $item.title `
+                                    -TableFormat $tableFormat
 
                     $counter += $actions.length
-                   
                 }
-                
-                if ($item.route.PSObject.Properties.Name -contains "dark") {
-                     $svgOptions = Add-Options -StartNumber $counter `
-                                -Actions $actions `
-                                -SvgOptions $svgOptions `
-                                -LogoType "Dark" `
-                                -SvgUrl $item.route.dark `
-                                -Title $item.title `
-                                -TableFormat $tableFormat
-                    $counter += $actions.length
-                }
-            } 
-            else {
-                $svgOptions = Add-Options -StartNumber $counter `
-                                -Actions $actions `
-                                -SvgOptions $svgOptions `
-                                -LogoType "Default" `
-                                -SvgUrl $item.route `
-                                -Title $item.title `
-                                -TableFormat $tableFormat
-
-                $counter += $actions.length
             }
         }
-        
-        # Process wordmark variants
-        if ($item.PSObject.Properties.Name -contains "wordmark") {
-            if ($item.wordmark -is [PSCustomObject]) {
-                if ($item.wordmark.PSObject.Properties.Name -contains "light") {
- 
-                    $svgOptions = Add-Options -StartNumber $counter `
-                            -Actions $actions `
-                            -SvgOptions $svgOptions `
-                            -LogoType "Wordmark Light" `
-                            -SvgUrl $item.wordmark.light `
-                            -Title $item.title `
-                            -TableFormat $tableFormat
-                    
-                   $counter += $actions.length
-                }
-                
-                # Handle dark wordmark
-                if ($item.wordmark.PSObject.Properties.Name -contains "dark") {
-                    
-                    $svgOptions = Add-Options -StartNumber $counter `
-                            -Actions $actions `
-                            -SvgOptions $svgOptions `
-                            -LogoType "Wordmark Dark" `
-                            -SvgUrl $item.wordmark.dark `
-                            -Title $item.title `
-                            -TableFormat $tableFormat
-                    
-                    $counter += $actions.length
-                }
-            } 
-            else {
-
-                $svgOptions = Add-Options -StartNumber $counter `
-                            -Actions $actions `
-                            -SvgOptions $svgOptions `
-                            -LogoType "Wordmark" `
-                            -SvgUrl $item.wordmark `
-                            -Title $item.title `
-                            -TableFormat $tableFormat
-             
-                $counter += $actions.length
-            }
-        }
-        
         Write-Host ""
     }
 
