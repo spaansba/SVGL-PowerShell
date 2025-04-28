@@ -41,6 +41,7 @@ To get the Tanstack react typescript component SVG we can do the following:
 svgl Tanstack
 ```
 
+Type `3` (see table) for the React component and `y` for the typescript version:
 <img src="./images/TanStack_React_Component_Svg.jpg" alt="Tanstack React component SVG copy">
 
 #### Result (copied to clipboard)
