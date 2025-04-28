@@ -48,6 +48,8 @@ Function Display-SvgSearchResults {
                         Source = "Light"
                         Action = "URL"
                         Value = $item.url
+                        Title = $item.title
+                        SvgUrl = $item.route.light
                     })
                     
                     # Add Raw SVG option
@@ -57,16 +59,31 @@ Function Display-SvgSearchResults {
                         Source = "Light"
                         Action = "RawSVG"
                         Value = $item.route.light
+                        Title = $item.title
+                        SvgUrl = $item.route.light
+                    })
+                    
+                    # Add React option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+2)
+                        Type = "React"
+                        Source = "Light"
+                        Action = "React"
+                        Value = $item.route.light
+                        Title = $item.title
+                        SvgUrl = $item.route.light
                     })
                     
                     # Add placeholders for the other options
-                    foreach ($i in 3..7) {
+                    foreach ($i in 4..7) {
                         [void]$svgOptions.Add(@{
                             Number = ($counter+$i-1)
                             Type = "Placeholder"
                             Source = "Light"
                             Action = "None"
                             Value = "Not implemented"
+                            Title = $item.title
+                            SvgUrl = $item.route.light
                         })
                     }
                     $counter += 7
@@ -83,6 +100,8 @@ Function Display-SvgSearchResults {
                         Source = "Dark"
                         Action = "URL"
                         Value = $item.url
+                        Title = $item.title
+                        SvgUrl = $item.route.dark
                     })
                     
                     # Add Raw SVG option
@@ -92,16 +111,31 @@ Function Display-SvgSearchResults {
                         Source = "Dark"
                         Action = "RawSVG"
                         Value = $item.route.dark
+                        Title = $item.title
+                        SvgUrl = $item.route.dark
+                    })
+                    
+                    # Add React option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+2)
+                        Type = "React"
+                        Source = "Dark"
+                        Action = "React"
+                        Value = $item.route.dark
+                        Title = $item.title
+                        SvgUrl = $item.route.dark
                     })
                     
                     # Add placeholders for the other options
-                    foreach ($i in 3..7) {
+                    foreach ($i in 4..7) {
                         [void]$svgOptions.Add(@{
                             Number = ($counter+$i-1)
                             Type = "Placeholder"
                             Source = "Dark"
                             Action = "None"
                             Value = "Not implemented"
+                            Title = $item.title
+                            SvgUrl = $item.route.dark
                         })
                     }
                     $counter += 7
@@ -117,6 +151,8 @@ Function Display-SvgSearchResults {
                     Source = "Default"
                     Action = "URL"
                     Value = $item.url
+                    Title = $item.title
+                    SvgUrl = $item.route
                 })
                 
                 # Add Raw SVG option
@@ -126,16 +162,31 @@ Function Display-SvgSearchResults {
                     Source = "Default"
                     Action = "RawSVG"
                     Value = $item.route
+                    Title = $item.title
+                    SvgUrl = $item.route
+                })
+                
+                # Add React option
+                [void]$svgOptions.Add(@{
+                    Number = ($counter+2)
+                    Type = "React"
+                    Source = "Default"
+                    Action = "React"
+                    Value = $item.route
+                    Title = $item.title
+                    SvgUrl = $item.route
                 })
                 
                 # Add placeholders for the other options
-                foreach ($i in 3..7) {
+                foreach ($i in 4..7) {
                     [void]$svgOptions.Add(@{
                         Number = ($counter+$i-1)
                         Type = "Placeholder"
                         Source = "Default"
                         Action = "None"
                         Value = "Not implemented"
+                        Title = $item.title
+                        SvgUrl = $item.route
                     })
                 }
                 $counter += 7
@@ -156,6 +207,8 @@ Function Display-SvgSearchResults {
                         Source = "Wordmark Light"
                         Action = "URL"
                         Value = $item.url
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.light
                     })
                     
                     # Add Raw SVG option
@@ -165,16 +218,31 @@ Function Display-SvgSearchResults {
                         Source = "Wordmark Light"
                         Action = "RawSVG"
                         Value = $item.wordmark.light
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.light
+                    })
+                    
+                    # Add React option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+2)
+                        Type = "React"
+                        Source = "Wordmark Light"
+                        Action = "React"
+                        Value = $item.wordmark.light
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.light
                     })
                     
                     # Add placeholders for the other options
-                    foreach ($i in 3..7) {
+                    foreach ($i in 4..7) {
                         [void]$svgOptions.Add(@{
                             Number = ($counter+$i-1)
                             Type = "Placeholder"
                             Source = "Wordmark Light"
                             Action = "None"
                             Value = "Not implemented"
+                            Title = $item.title
+                            SvgUrl = $item.wordmark.light
                         })
                     }
                     $counter += 7
@@ -191,6 +259,8 @@ Function Display-SvgSearchResults {
                         Source = "Wordmark Dark"
                         Action = "URL"
                         Value = $item.url
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.dark
                     })
                     
                     # Add Raw SVG option
@@ -200,16 +270,31 @@ Function Display-SvgSearchResults {
                         Source = "Wordmark Dark"
                         Action = "RawSVG"
                         Value = $item.wordmark.dark
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.dark
+                    })
+                    
+                    # Add React option
+                    [void]$svgOptions.Add(@{
+                        Number = ($counter+2)
+                        Type = "React"
+                        Source = "Wordmark Dark"
+                        Action = "React"
+                        Value = $item.wordmark.dark
+                        Title = $item.title
+                        SvgUrl = $item.wordmark.dark
                     })
                     
                     # Add placeholders for the other options
-                    foreach ($i in 3..7) {
+                    foreach ($i in 4..7) {
                         [void]$svgOptions.Add(@{
                             Number = ($counter+$i-1)
                             Type = "Placeholder"
                             Source = "Wordmark Dark"
                             Action = "None"
                             Value = "Not implemented"
+                            Title = $item.title
+                            SvgUrl = $item.wordmark.dark
                         })
                     }
                     $counter += 7
@@ -225,6 +310,8 @@ Function Display-SvgSearchResults {
                     Source = "Wordmark"
                     Action = "URL"
                     Value = $item.url
+                    Title = $item.title
+                    SvgUrl = $item.wordmark
                 })
                 
                 # Add Raw SVG option
@@ -234,16 +321,31 @@ Function Display-SvgSearchResults {
                     Source = "Wordmark"
                     Action = "RawSVG"
                     Value = $item.wordmark
+                    Title = $item.title
+                    SvgUrl = $item.wordmark
+                })
+                
+                # Add React option
+                [void]$svgOptions.Add(@{
+                    Number = ($counter+2)
+                    Type = "React"
+                    Source = "Wordmark"
+                    Action = "React"
+                    Value = $item.wordmark
+                    Title = $item.title
+                    SvgUrl = $item.wordmark
                 })
                 
                 # Add placeholders for the other options
-                foreach ($i in 3..7) {
+                foreach ($i in 4..7) {
                     [void]$svgOptions.Add(@{
                         Number = ($counter+$i-1)
                         Type = "Placeholder"
                         Source = "Wordmark"
                         Action = "None"
                         Value = "Not implemented"
+                        Title = $item.title
+                        SvgUrl = $item.wordmark
                     })
                 }
                 $counter += 7
@@ -265,6 +367,54 @@ Function Display-SvgSearchResults {
         $selectedOption = $null
     }
     
+    # Helper function to get API response data
+    function Get-ApiResponseContent {
+        param (
+            [Parameter(Mandatory = $true)]
+            [PSObject]$Response
+        )
+        
+        # Check if the response has a data property (common API response pattern)
+        if ($Response.PSObject.Properties.Name -contains "data") {
+            return $Response.data
+        }
+        
+        # Otherwise return the full response
+        return $Response
+    }
+    
+    # Helper function to process web requests
+    function Invoke-ApiRequest {
+        param (
+            [Parameter(Mandatory = $true)]
+            [string]$Uri,
+            
+            [Parameter()]
+            [string]$Method = "Get",
+            
+            [Parameter()]
+            [object]$Body,
+            
+            [Parameter()]
+            [hashtable]$Headers
+        )
+        
+        try {
+            if ($Method -eq "Get") {
+                $response = Invoke-WebRequest -Uri $Uri -UseBasicParsing
+                return $response.Content
+            }
+            else {
+                $response = Invoke-RestMethod -Uri $Uri -Method $Method -Body $Body -Headers $Headers
+                return Get-ApiResponseContent -Response $response
+            }
+        }
+        catch {
+            Write-Host "Error making request to $Uri : $_" -ForegroundColor Red
+            return $null
+        }
+    }
+    
     # Handle selected option
     if ($selectedOption) {
         switch ($selectedOption.Action) {
@@ -275,13 +425,43 @@ Function Display-SvgSearchResults {
             }
             "RawSVG" {
                 # Request SVG content and copy to clipboard
-                try {
-                    $svgResponse = Invoke-WebRequest -Uri $selectedOption.Value -UseBasicParsing
-                    $svgResponse.Content | Set-Clipboard
+                $svgContent = Invoke-ApiRequest -Uri $selectedOption.Value
+                
+                if ($svgContent) {
+                    $svgContent | Set-Clipboard
                     Write-Host "Copied Raw SVG content to clipboard from: $($selectedOption.Value)" -ForegroundColor Green
                 }
-                catch {
-                    Write-Host "Failed to retrieve SVG content: $_" -ForegroundColor Red
+            }
+            "React" {
+                # Ask if TypeScript is needed
+                $useTypeScript = Read-Host "Do you want TypeScript support? (y/n)"
+                $isTypeScript = $useTypeScript.ToLower() -eq 'y'
+                
+                # First get the SVG content
+                $svgContent = Invoke-ApiRequest -Uri $selectedOption.SvgUrl
+                
+                if ($svgContent) {
+                    # Prepare the request body
+                    $body = @{
+                        code = $svgContent
+                        name = $selectedOption.Title
+                        typescript = $isTypeScript
+                    } | ConvertTo-Json
+                    
+                    # Send request to SVGR API
+                    $headers = @{
+                        "Content-Type" = "application/json"
+                    }
+                    
+                    $reactComponent = Invoke-ApiRequest -Uri "https://svgl.app/api/svgs/svgr" -Method Post -Body $body -Headers $headers
+                    
+                    if ($reactComponent) {
+                        # Copy React component to clipboard
+                        $reactComponent | Set-Clipboard
+                        
+                        $tsMessage = if ($isTypeScript) { " with TypeScript" } else { "" }
+                        Write-Host "Copied React component$tsMessage to clipboard for: $($selectedOption.Title)" -ForegroundColor Green
+                    }
                 }
             }
             "None" {
