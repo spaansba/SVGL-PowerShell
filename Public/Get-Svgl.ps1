@@ -20,7 +20,8 @@ function Get-Svgl {
 
     # Handle search parameter
     if ($Search -ne "") {
-        Find-Svg -search $Search
+        $results = Find-Svg -Search $Search
+        Display-SvgSearchResults -Results $results -SearchTerm $Search
         return
     }
 
