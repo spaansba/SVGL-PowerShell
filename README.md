@@ -1,5 +1,6 @@
 # SVGL-PowerShell (Get-SVGL)
 A PowerShell module for accessing the SVGL API to search for SVG logos.
+
 Required PowerShell version: 7+
 
 ![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/Get-SVGL)
