@@ -21,14 +21,14 @@ Install-Module -Name Get-SVGL
 
 ```powershell
 Get-Svgl
+# Or use the alias
+svgl
 ```
 
 ### List SVGs in a Specific Category
 
 ```powershell
-Get-Svgl -Category Framework
-# Or use the alias
-Get-Svgl -c Framework
+svgl -c Framework
 ```
 
 ### Search for a Specific SVG
@@ -36,7 +36,7 @@ Get-Svgl -c Framework
 To get the Tanstack react typescript component SVG we can do the following:
 
 ```powershell
-Get-Svgl Tanstack
+svgl Tanstack
 ```
 
 <img src="./images/TanStack_React_Component_Svg.jpg" alt="Tanstack React component SVG copy">
