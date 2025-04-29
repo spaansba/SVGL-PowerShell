@@ -1,6 +1,9 @@
 function Invoke-SelectedOption {
-    [System.Object[]]$SelectedOption
-
+    param (
+        [Parameter(Mandatory=$true)]
+        [PSCustomObject]$SelectedOption
+    )
+    Write-Host $SelectedOption.GetType()
     . "$PSScriptRoot\Handlers\Parse-SvgContent.ps1"
     . "$PSScriptRoot\Handlers\Get-VueCode.ps1"
     . "$PSScriptRoot\Handlers\Get-SvelteCode.ps1"
