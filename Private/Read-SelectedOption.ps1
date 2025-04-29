@@ -8,11 +8,8 @@ function Read-SelectedOption {
     
     try {
         $selectionInt = [int]$selection
-        # Use Select-Object -First 1 to ensure we get a single object
-        # Use -Property * to ensure we preserve the original object structure
         $selectedOption = $SvgOptions | Where-Object { $_.Number -eq $selectionInt } | Select-Object -First 1 -Property *
         
-        # If you need to ensure it's a hashtable specifically
         if ($selectedOption -and $selectedOption -isnot [System.Collections.Hashtable]) {
             $hashtable = @{}
             $selectedOption.PSObject.Properties | ForEach-Object {

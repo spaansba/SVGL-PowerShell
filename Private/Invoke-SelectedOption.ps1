@@ -114,7 +114,18 @@ function Invoke-SelectedOption {
                 }
             }
             "Astro" {
-                Write-Host "This option is not implemented yet" -ForegroundColor Yellow
+                # First get the SVG content
+                $svgContent = Invoke-ApiRequest -Uri $SelectedOption.SvgUrl
+                
+                if ($svgContent) {
+                    # Generate Astro component
+                    $astroComponent = Get-AstroCode -Content $svgContent
+                    
+                    # Copy Astro component to clipboard
+                    $astroComponent | Set-Clipboard
+                    
+                    Write-Host "Copied Astro component to clipboard for: $($SelectedOption.Title) ($($SelectedOption.LogoType))" -ForegroundColor Green
+                }
             }
         }
         Write-Host ""
