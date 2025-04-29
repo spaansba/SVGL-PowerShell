@@ -1,6 +1,8 @@
 # SVGL-PowerShell (Get-SVGL)
 A PowerShell module for accessing the SVGL API to search for SVG logos.
 
+Required PowerShell version: 7+
+
 ![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/Get-SVGL)
 ![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/Get-SVGL)
 ![License](https://img.shields.io/github/license/spaansba/SVGL-PowerShell)
@@ -39,6 +41,7 @@ To get the Tanstack react typescript component SVG we can do the following:
 svgl Tanstack
 ```
 
+Type `3` (see table) for the React component and `y` for the typescript version:
 <img src="./images/TanStack_React_Component_Svg.jpg" alt="Tanstack React component SVG copy">
 
 #### Result (copied to clipboard)
