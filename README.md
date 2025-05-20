@@ -7,6 +7,8 @@ Required PowerShell version: 7+
 ![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/Get-SVGL)
 ![License](https://img.shields.io/github/license/spaansba/SVGL-PowerShell)
 
+![](https://github.com/spaansba/SVGL-PowerShell/blob/main/images/Preview-SVGL.gif)
+
 ## Installation
 
 ### Manual Installation
